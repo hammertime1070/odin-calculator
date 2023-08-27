@@ -66,12 +66,12 @@ function updateResultValue() {
 
 // UI Elements
 
-const add = document.querySelector('#add')
-const subtract = document.querySelector('#subtract')
-const multiply = document.querySelector('#multiply')
-const divide = document.querySelector('#divide')
+const addBtn = document.querySelector('#add')
+const subtractBtn = document.querySelector('#subtract')
+const multiplyBtn = document.querySelector('#multiply')
+const divideBtn = document.querySelector('#divide')
 
-const pressEquals = document.querySelector('#pressEquals')
+const equalsBtn = document.querySelector('#equals')
 
 const zero = document.querySelector('#zero')
 const one = document.querySelector('#one')
@@ -86,12 +86,12 @@ const nine = document.querySelector('#nine')
 
 // UI On Clicks
 
-add.onclick = () => setAdd()
-subtract.onclick = () => setSubtract()
-multiply.onclick = () => setMultiply()
-divide.onclick = () => setDivide()
+addBtn.onclick = () => setAdd()
+subtractBtn.onclick = () => setSubtract()
+multiplyBtn.onclick = () => setMultiply()
+divideBtn.onclick = () => setDivide()
 
-pressEquals.onclick = () => evaluate()
+equalsBtn.onclick = () => evaluate()
 
 zero.onclick = () => pushToArray(0)
 one.onclick = () => pushToArray(1)
