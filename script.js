@@ -1,5 +1,5 @@
 //Set up variables
-let resultValue = 10;
+let resultValue = 0;
 let operatorValue = 0;
 let inputArray = []
 var activeOperation = add;
@@ -8,18 +8,22 @@ var activeOperation = add;
 
 function setAdd() {
     activeOperation = add
+    inputArray = []
 }
 
 function setSubtract() {
     activeOperation = subtract
+    inputArray = []
 }
 
 function setMultiply() {
     activeOperation = multiply
+    inputArray = []
 }
 
 function setDivide() {
     activeOperation = divide
+    inputArray = []
 }
 
 // Set up Operations
@@ -45,15 +49,20 @@ function evaluate() {
     updateResultValue()
 }
 
+function clearCalculator() {
+    resultValue = 0;
+    operatorValue = 0;
+    inputArray = [];
+    activeOperation = add;
+    updateResultValue()
+}
+
 function pushToArray(n) {
     inputArray.push(n)
 }
 
 
 // Function to get operatorValue
-// Eventually will need to wait for a new button press
-// and set the value of operatorValue
-// May want a separate function to wait for the value within the operations
 
 function updateOperatorValue() {
     // + in this function ensures the result will be numeric
@@ -70,6 +79,7 @@ const addBtn = document.querySelector('#add')
 const subtractBtn = document.querySelector('#subtract')
 const multiplyBtn = document.querySelector('#multiply')
 const divideBtn = document.querySelector('#divide')
+const clearBtn = document.querySelector('#clear')
 
 const equalsBtn = document.querySelector('#equals')
 
@@ -90,6 +100,7 @@ addBtn.onclick = () => setAdd()
 subtractBtn.onclick = () => setSubtract()
 multiplyBtn.onclick = () => setMultiply()
 divideBtn.onclick = () => setDivide()
+clearBtn.onclick = () => clearCalculator()
 
 equalsBtn.onclick = () => evaluate()
 
