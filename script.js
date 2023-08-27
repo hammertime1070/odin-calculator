@@ -63,6 +63,7 @@ function clearCalculator() {
 
 function pushToArray(n) {
     inputArray.push(n)
+    handleDisplay()
 }
 
 function setInputsAsResult(){
@@ -102,6 +103,8 @@ const seven = document.querySelector('#seven')
 const eight = document.querySelector('#eight')
 const nine = document.querySelector('#nine')
 
+const result = document.querySelector('#result')
+
 // UI On Clicks
 
 addBtn.onclick = () => setAdd()
@@ -123,3 +126,12 @@ seven.onclick = () => pushToArray(7)
 eight.onclick = () => pushToArray(8)
 nine.onclick = () => pushToArray(9)
 
+// UI Methods
+
+function handleDisplay() {
+    inputArrayValue = +inputArray.join("")
+    const content = document.createElement('div')
+    content.classList.add('content')
+    content.textContent = inputArrayValue
+    result.appendChild(content)
+}
