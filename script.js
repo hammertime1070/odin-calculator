@@ -1,24 +1,24 @@
 //Set up variables
-let resultValue = 0;
+let resultValue = 10;
 let operatorValue = 0;
-let activeOperation = add()
+var activeOperation = add;
 
 // Set up functions to change the activeOperation to the correct operation
 
 function setAdd() {
-    activeOperation = add()
+    activeOperation = add
 }
 
 function setSubtract() {
-    activeOperation = subtract()
+    activeOperation = subtract
 }
 
 function setMultiply() {
-    activeOperation = multiply()
+    activeOperation = multiply
 }
 
 function setDivide() {
-    activeOperation = divide()
+    activeOperation = divide
 }
 
 // Set up Operations
@@ -56,4 +56,3 @@ function updateOperatorValue() {
 function updateResultValue() {
     console.log(resultValue)
 }
-
