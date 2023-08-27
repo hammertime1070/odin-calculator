@@ -56,7 +56,8 @@ function pushToArray(n) {
 // May want a separate function to wait for the value within the operations
 
 function updateOperatorValue() {
-    operatorValue = parseInt(prompt('operatorValue'))
+    // + in this function ensures the result will be numeric
+    operatorValue = +inputArray.join("")
 }
 
 function updateResultValue() {
