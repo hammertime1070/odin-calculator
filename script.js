@@ -51,6 +51,7 @@ function evaluate() {
     updateOperatorValue()
     activeOperation()
     updateResultValue()
+    inputArray = []
 }
 
 function clearCalculator() {
@@ -61,13 +62,24 @@ function clearCalculator() {
     updateResultValue()
 }
 
+function handleNumberInputs(n) {
+    pushToArray(n)
+    let inputNumber = +inputArray.join("")
+    console.log(`resultValue=${resultValue}`)
+    console.log(`operatorValue=${operatorValue}`)
+    updateDisplay(inputNumber)
+}
+
+
 function pushToArray(n) {
     inputArray.push(n)
-    handleDisplay()
 }
 
 function setInputsAsResult(){
-    resultValue = +inputArray.join("")
+    console.log(inputArray)
+    if (inputArray.length > 0){
+        resultValue = +inputArray.join("")
+    }
 }
 
 
@@ -79,7 +91,7 @@ function updateOperatorValue() {
 }
 
 function updateResultValue() {
-    console.log(resultValue)
+    updateDisplay(resultValue)
 }
 
 // UI Elements
@@ -115,23 +127,27 @@ clearBtn.onclick = () => clearCalculator()
 
 equalsBtn.onclick = () => evaluate()
 
-zero.onclick = () => pushToArray(0)
-one.onclick = () => pushToArray(1)
-two.onclick = () => pushToArray(2)
-three.onclick = () => pushToArray(3)
-four.onclick = () => pushToArray(4)
-five.onclick = () => pushToArray(5)
-six.onclick = () => pushToArray(6)
-seven.onclick = () => pushToArray(7)
-eight.onclick = () => pushToArray(8)
-nine.onclick = () => pushToArray(9)
+zero.onclick = () => handleNumberInputs(0)
+one.onclick = () => handleNumberInputs(1)
+two.onclick = () => handleNumberInputs(2)
+three.onclick = () => handleNumberInputs(3)
+four.onclick = () => handleNumberInputs(4)
+five.onclick = () => handleNumberInputs(5)
+six.onclick = () => handleNumberInputs(6)
+seven.onclick = () => handleNumberInputs(7)
+eight.onclick = () => handleNumberInputsv(8)
+nine.onclick = () => handleNumberInputs(9)
 
 // UI Methods
 
-function handleDisplay() {
-    inputArrayValue = +inputArray.join("")
+function updateDisplay(displayValue) {
+    // Clear Display
+    pendingRemovalContent = document.getElementsByClassName('content')
+    while (pendingRemovalContent.length > 0){
+        pendingRemovalContent[0].parentNode.removeChild(pendingRemovalContent[0])
+    }
     const content = document.createElement('div')
     content.classList.add('content')
-    content.textContent = inputArrayValue
+    content.textContent = displayValue
     result.appendChild(content)
 }
