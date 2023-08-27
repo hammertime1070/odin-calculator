@@ -8,21 +8,25 @@ var activeOperation = add;
 
 function setAdd() {
     activeOperation = add
+    setInputsAsResult()
     inputArray = []
 }
 
 function setSubtract() {
     activeOperation = subtract
+    setInputsAsResult()
     inputArray = []
 }
 
 function setMultiply() {
     activeOperation = multiply
+    setInputsAsResult()
     inputArray = []
 }
 
 function setDivide() {
     activeOperation = divide
+    setInputsAsResult()
     inputArray = []
 }
 
@@ -59,6 +63,10 @@ function clearCalculator() {
 
 function pushToArray(n) {
     inputArray.push(n)
+}
+
+function setInputsAsResult(){
+    resultValue = +inputArray.join("")
 }
 
 
