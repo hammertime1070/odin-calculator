@@ -8,7 +8,6 @@ var consecutiveOperationsFlag = false;
 // Set up functions to change the activeOperation to the correct operation
 
 function setAdd() {
-    activeOperation = add
     if (consecutiveOperationsFlag == true) {
         updateOperatorValue()
         activeOperation()
@@ -19,11 +18,11 @@ function setAdd() {
         setInputsAsResult()
         inputArray = []
     }
+    activeOperation = add
     consecutiveOperationsFlag = true
 }
 
 function setSubtract() {
-    activeOperation = subtract
     if (consecutiveOperationsFlag == true) {
         updateOperatorValue()
         activeOperation()
@@ -34,11 +33,11 @@ function setSubtract() {
         setInputsAsResult()
         inputArray = []
     }
+    activeOperation = subtract
     consecutiveOperationsFlag = true
 }
 
 function setMultiply() {
-    activeOperation = multiply
     if (consecutiveOperationsFlag == true) {
         updateOperatorValue()
         activeOperation()
@@ -49,11 +48,11 @@ function setMultiply() {
         setInputsAsResult()
         inputArray = []
     }
+    activeOperation = multiply
     consecutiveOperationsFlag = true
 }
 
 function setDivide() {
-    activeOperation = divide
     if (consecutiveOperationsFlag == true) {
         updateOperatorValue()
         activeOperation()
@@ -64,6 +63,7 @@ function setDivide() {
         setInputsAsResult()
         inputArray = []
     }
+    activeOperation = divide
     consecutiveOperationsFlag = true
 }
 
