@@ -24,20 +24,47 @@ function setAdd() {
 
 function setSubtract() {
     activeOperation = subtract
-    setInputsAsResult()
-    inputArray = []
+    if (consecutiveOperationsFlag == true) {
+        updateOperatorValue()
+        activeOperation()
+        updateResultValue()
+        inputArray = []
+    }
+    else {
+        setInputsAsResult()
+        inputArray = []
+    }
+    consecutiveOperationsFlag = true
 }
 
 function setMultiply() {
     activeOperation = multiply
-    setInputsAsResult()
-    inputArray = []
+    if (consecutiveOperationsFlag == true) {
+        updateOperatorValue()
+        activeOperation()
+        updateResultValue()
+        inputArray = []
+    }
+    else {
+        setInputsAsResult()
+        inputArray = []
+    }
+    consecutiveOperationsFlag = true
 }
 
 function setDivide() {
     activeOperation = divide
-    setInputsAsResult()
-    inputArray = []
+    if (consecutiveOperationsFlag == true) {
+        updateOperatorValue()
+        activeOperation()
+        updateResultValue()
+        inputArray = []
+    }
+    else {
+        setInputsAsResult()
+        inputArray = []
+    }
+    consecutiveOperationsFlag = true
 }
 
 // Set up Operations
