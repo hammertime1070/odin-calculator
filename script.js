@@ -3,15 +3,23 @@ let resultValue = 0;
 let operatorValue = 0;
 let inputArray = []
 var activeOperation = add;
+var consecutiveOperationsFlag = false;
 
 // Set up functions to change the activeOperation to the correct operation
 
 function setAdd() {
     activeOperation = add
-    setInputsAsResult()
-    // evaluate() // TODO Figure out how to make this work
-    // Trying to make successive inputs work as anticipated.
-    inputArray = []
+    if (consecutiveOperationsFlag == true) {
+        updateOperatorValue()
+        activeOperation()
+        updateResultValue()
+        inputArray = []
+    }
+    else {
+        setInputsAsResult()
+        inputArray = []
+    }
+    consecutiveOperationsFlag = true
 }
 
 function setSubtract() {
@@ -54,6 +62,7 @@ function evaluate() {
     activeOperation()
     updateResultValue()
     inputArray = []
+    consecutiveOperationsFlag = false
 }
 
 function clearCalculator() {
@@ -78,7 +87,6 @@ function pushToArray(n) {
 }
 
 function setInputsAsResult(){
-    console.log(inputArray)
     if (inputArray.length > 0){
         resultValue = +inputArray.join("")
     }
