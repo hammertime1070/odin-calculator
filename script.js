@@ -9,6 +9,8 @@ var activeOperation = add;
 function setAdd() {
     activeOperation = add
     setInputsAsResult()
+    // evaluate() // TODO Figure out how to make this work
+    // Trying to make successive inputs work as anticipated.
     inputArray = []
 }
 
